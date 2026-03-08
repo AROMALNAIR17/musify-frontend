@@ -2,7 +2,7 @@ import { usePlayer } from '../context/PlayerContext'
 
 function MusicPlayer() {
 
-    const { currentSong, isPlaying, setIsPlaying, pauseSong } = usePlayer()
+    const { currentSong } = usePlayer()
 
     if (!currentSong) return null
 
@@ -21,7 +21,6 @@ function MusicPlayer() {
             zIndex: 1000
         }}>
 
-            {/* Direct YouTube iframe */}
             {currentSong.youtubeId && (
                 <iframe
                     width="200"
@@ -33,7 +32,6 @@ function MusicPlayer() {
                 />
             )}
 
-            {/* Song Info */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{
                     backgroundColor: '#22c55e',
@@ -55,7 +53,6 @@ function MusicPlayer() {
                 </div>
             </div>
 
-            {/* Status */}
             <p style={{ color: '#22c55e', fontSize: '14px', margin: 0 }}>
                 🎵 Now Playing
             </p>

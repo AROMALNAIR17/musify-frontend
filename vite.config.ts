@@ -3,15 +3,14 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
   server: {
+    host: '0.0.0.0',
+    port: 5173,
     proxy: {
-      '/auth': 'http://localhost:8081',
-      '/songs': 'http://localhost:8081',
-      '/playlists': 'http://localhost:8081',
+      '/auth': 'http://backend:8081',
+      '/songs': 'http://backend:8081',
+      '/playlists': 'http://backend:8081',
     }
   }
 })
